@@ -26,6 +26,7 @@ namespace Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddOpenApiGen();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,7 +42,7 @@ namespace Api
             app.UseRouting();
 
             app.UseAuthorization();
-
+            app.UseOpenApi();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
