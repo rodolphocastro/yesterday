@@ -15,3 +15,12 @@ This project is inspired by [Keep a Changelog](https://keepachangelog.com/en/1.0
 > Currently under development
 
 ## 🛣 Roadmap
+
+## 👉 Also check out
+
+Check out these other projects:
+
++ [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
++ [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
++ [Semantic Versioning](https://semver.org/)
++ [Humans.txt](http://humanstxt.org/)

@@ -1,0 +1,49 @@
+---
+
+profiles:
+  - id: 48346d52-b3b3-459f-a0aa-0a5d85637cbe
+    username: my.email@test.com
+    nickname: AR / DC
+    profiles:
+      github: "https://github.com/rodolphocastro"
+      linkedin: "https://www.linkedin.com/in/hitme"
+      medium: ~
+
+projects:
+  - id: "..."
+    name: "Yesterday"
+    owners:
+    - 48346d52-b3b3-459f-a0aa-0a5d85637cbe
+    contributors:
+    - 48346d52-b3b3-459f-81982191910101sa
+    - 59457e63-a2a2-459f-81982191910101sa
+    - 2838s9a-c4c4-459f-81982191910101sa
+    description: "Easily keep changelogs for your Projects!"
+    project url: "https://github.com/rodolphocastro/yesterday"
+    tags:
+    - "csharp"
+    - "keep-a-changelog"
+    - "changelog"
+    - "vue"
+    - "typescript"
+    versions:
+    - tag: v0.1.0
+      released: false
+      codename: heroic_atlas
+      added:
+      - lorem dolor
+      - sit amet
+      changed:      
+      - abcd
+      fixed:
+      - "Issue #-20" 
+      removed:
+      - Lazy references to greek mythology
+    - tag: v0.0.1
+      released: true
+      codename: lazy_hermes
+      added:
+      - Everything
+      changed: ~
+      fixed: ~
+      removed: ~
