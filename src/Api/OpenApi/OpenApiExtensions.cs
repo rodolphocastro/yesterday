@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 
-namespace Api
+namespace Api.OpenApi
 {
     /// <summary>
     /// Extensions for adding and setting up OpenApi Spec generation and presentation.
