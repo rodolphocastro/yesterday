@@ -1,7 +1,8 @@
 ﻿using System;
-
+using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Api.Auth
 {
@@ -42,6 +43,12 @@ namespace Api.Auth
                     s.Authority = settings.Authority;
                     s.Audience = settings.Audience;
                     s.MetadataAddress = string.IsNullOrWhiteSpace(settings.WellKnownAddress) ? null : settings.WellKnownAddress;
+                    s.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        NameClaimType = ClaimTypes.NameIdentifier,
+                        ValidateAudience = true,
+                        ValidateIssuer = true
+                    };
                 });
             return services;
         }
