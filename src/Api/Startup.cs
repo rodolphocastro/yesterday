@@ -23,7 +23,7 @@ namespace Api
         {
             services.AddAuth(c => Configuration.Bind(TokenSettings.TokenSettingsKey, c));
             services.AddControllers();
-            services.AddOpenApiGen();
+            services.AddOpenApiGen(c => Configuration.Bind(TokenSettings.TokenSettingsKey, c));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,7 +40,7 @@ namespace Api
 
             app.UseAuthentication();
             app.UseAuthorization();
-            app.UseOpenApi();
+            app.UseOpenApi(true, c => Configuration.Bind(TokenSettings.TokenSettingsKey, c));
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
