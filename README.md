@@ -18,7 +18,7 @@ This project is inspired by [Keep a Changelog](https://keepachangelog.com/en/1.0
 
 ### Core
 
-+ [ ] User Profiles
++ [X] User Profiles
   + Allow users to login and keep a profile within Yesterday
 + [ ] Projects
   + Allow users to create "Projects"
@@ -61,7 +61,17 @@ This project is inspired by [Keep a Changelog](https://keepachangelog.com/en/1.0
 
 ### Eventually
 
++ Versions
+  + [ ] Import from:
+    + [ ] Markdown changelogs
+    + [ ] Json changelogs
+    + [ ] Yaml changelogs
+
 ### Perhaps someday
+
++ Versions
+  + [ ] Import from:
+    + [ ] Git log
 
 ## 👉 Also check out
 
