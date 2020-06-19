@@ -1,6 +1,7 @@
 using Api.Auth;
+using Api.Models;
 using Api.OpenApi;
-
+using Api.Storage;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -21,6 +22,7 @@ namespace Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddStorageFor<Profile>();
             services.AddAuth(c => Configuration.Bind(TokenSettings.TokenSettingsKey, c));
             services.AddControllers();
             services.AddOpenApiGen(c => Configuration.Bind(TokenSettings.TokenSettingsKey, c));
