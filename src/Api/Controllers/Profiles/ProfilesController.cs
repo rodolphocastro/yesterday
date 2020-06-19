@@ -1,6 +1,8 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 
 using Api.Models;
+using Api.Storage;
 
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -12,8 +14,11 @@ namespace Api.Controllers.Profiles
     [Route("/api/v1/[controller]")]
     public class ProfilesController : YesterdayControllerBase
     {
-        public ProfilesController(ILogger<YesterdayControllerBase> logger) : base(logger)
+        private readonly IStorage<Profile> _storage;
+
+        public ProfilesController(IStorage<Profile> storage, ILogger<YesterdayControllerBase> logger = null) : base(logger)
         {
+            _storage = storage ?? throw new ArgumentNullException(nameof(storage));
         }
 
         [Authorize]
@@ -21,9 +26,13 @@ namespace Api.Controllers.Profiles
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<Profile>> GetMyProfile()
         {
-            // TODO: Actually connect to a database of some sort
-            // If the user doesn't have a profile a new Profile should be created in its behalf
-            return Ok(new Profile { Id = Username, Nickname = "It's a meee, Profilio!" });
+            var result = await _storage.GetAsync(p => p.Id == Username);
+            if (result is null)
+            {
+                result = new Profile { Id = Username, Nickname = "A new user enters the Arena" };
+                await _storage.InsertAsync(result);
+            }
+            return Ok(result);
         }
 
         [Authorize]
@@ -31,7 +40,7 @@ namespace Api.Controllers.Profiles
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> UpdateMyProfile(Profile updatedProfile)
         {
-            // TODO: Actually fetch the original from the database and then update it
+            await _storage.UpdateAsync(p => p.Id == Username, updatedProfile);
             return NoContent();
         }
     }
